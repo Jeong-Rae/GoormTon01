@@ -17,4 +17,4 @@ EXPOSE ${PORT}
 
 ENV EXE SpringDemo-0.0.1-SNAPSHOT.jar
 
-CMD ["java", "-jar", "./build/libs/${EXE}"]
+CMD java -jar "./build/libs/${EXE}"
