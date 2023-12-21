@@ -1,0 +1,15 @@
+version: "3"
+services:
+  spring-server:
+    image: "jeongrae/goorm01"
+    ports:
+      - "8080:8080"
+  h2-database:
+    image: "oscarfonts/h2"
+    ports:
+      - 1521:1521
+      - 8081:81
+    environment:
+      H2_OPTIONS: -ifNotExists
+    volumes:
+      - ./h2/:/opt/h2-data
