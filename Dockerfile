@@ -2,15 +2,14 @@ FROM openjdk:17-jdk
 LABEL authors="kkwjdfo@gmail.com"
 
 
+
 WORKDIR ~/spring
 
-COPY build.gradle .
-
-RUN ./gradlew dependencies
+RUN microdnf install findutils
 
 COPY . .
 
-RUN ./gradlew build
+RUN ./gradlew build -x test
 
 ENV PORT 8080
 

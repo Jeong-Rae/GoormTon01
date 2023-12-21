@@ -20,7 +20,7 @@ public class MemberServiceIntegrationTest {
     MemberRepository memberRepository;
 
     @Test
-    public void join() throws Exception {
+    public void join(){
         Member member = new Member(0L, "spring");
 
         Long saveId = memberService.join(member);
@@ -30,7 +30,7 @@ public class MemberServiceIntegrationTest {
     }
 
     @Test
-    public void duplicateMemberJoin() throws Exception {
+    public void duplicateMemberJoin(){
         Member member1 = new Member(0L, "spring");
         Member member2 = new Member(0L, "spring");
 
