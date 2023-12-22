@@ -1,7 +1,7 @@
 FROM openjdk:17-jdk as build
 LABEL authors="kkwjdfo@gmail.com"
 
-WORKDIR ~/app
+WORKDIR /app
 
 RUN microdnf install findutils
 
@@ -15,4 +15,4 @@ WORKDIR /app
 
 COPY --from=build /app/build/libs/SpringDemo-0.0.1-SNAPSHOT.jar /app
 
-CMD ["java","-jar","./build/libs/SpringDemo-0.0.1-SNAPSHOT.jar"]
+CMD ["java","-jar","SpringDemo-0.0.1-SNAPSHOT.jar"]
