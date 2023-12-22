@@ -2,14 +2,19 @@ version: "3"
 services:
   spring-server:
     image: "jeongrae/goorm01"
+    container_name: "spring-server"
     ports:
       - "8080:8080"
-  h2-database:
-    image: "oscarfonts/h2"
+    depends_on: # spring-server 의 db 의존성 설정
+      - h2-db
+  h2-db:
+    container_name: "h2-db"
+    image: "oscarfonts/h2:latest"
     ports:
-      - 1521:1521
-      - 8081:81
+      - "1521:1521" # db
+      - "8081:81" # gui 웹
     environment:
-      H2_OPTIONS: -ifNotExists
+      H2_OPTIONS: -ifNotExists # db 유일 생성
     volumes:
       - ./h2/:/opt/h2-data
+    restart: always # 컨테이너 재실행 설정
